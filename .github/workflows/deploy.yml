@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master
+      - dario-changes
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -35,11 +35,11 @@ jobs:
           NODE_ENV: production
         run: npm run build
 
-      - name: Deploy to GitHub Pages 🚀
-        if: success()
-        uses: crazy-max/ghaction-github-pages@v2
-        with:
-          target_branch: gh-pages
-          build_dir: build
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      # - name: Deploy to GitHub Pages 🚀
+      #   if: success()
+      #   uses: crazy-max/ghaction-github-pages@v2
+      #   with:
+      #     target_branch: gh-pages
+      #     build_dir: build
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
